@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(_gameManager.IsResult)
+        if (!_gameManager.IsResult)
         {
             Move();
             MoveLimit();
