@@ -10,7 +10,7 @@ using DG.Tweening;
 /// </summary>
 public class FadeSystem : MonoBehaviour
 {
-    public static FadeSystem _instance;
+    public static FadeSystem Instance { get; private set; }
 
     [SerializeField] private RawImage _img;
     [Header("フェードにかかる時間")]
@@ -22,9 +22,9 @@ public class FadeSystem : MonoBehaviour
 
     private void Awake()
     {
-        if (_instance == null)
+        if (Instance == null)
         {
-            _instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
 
             SceneManager.activeSceneChanged += FadeIn;
