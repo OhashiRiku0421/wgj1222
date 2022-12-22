@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         _dir = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
-        _transform.Translate(_dir * _moveSpeed * Time.deltaTime);
+        _transform.Translate(_dir * _moveSpeed * UnityEngine.Time.deltaTime);
     }
 
     private void MoveLimit()
