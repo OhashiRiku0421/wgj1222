@@ -10,10 +10,14 @@ public class ObstacleGenerator : MonoBehaviour
     [SerializeField] GameObject m_obstaclePrefab;
     [SerializeField] Transform m_generatePoint;
 
+
+    private float _generateXOffset;
+
     private bool _generated = false;
 
     private void Start()
     {
+        _generateXOffset = m_generatePoint.position.x;
         CenterPositionTrackerSingleton.Instance.OnPositionUpdate.Subscribe(pos => OnPositionUpdate(pos.position)).AddTo(this);
     }
     private void OnPositionUpdate(Vector2 position)
@@ -25,7 +29,9 @@ public class ObstacleGenerator : MonoBehaviour
         {
             _generated = true;
             var gobj = Instantiate(m_obstaclePrefab);
-            gobj.transform.position = m_generatePoint.position;
+            var pos = m_generatePoint.position;
+            pos.x = position.x + (_generateXOffset/* * Mathf.Sign(UnityEngine.Random.Range(-1, 1))*/);
+            gobj.transform.position = pos;
         }
     }
 
