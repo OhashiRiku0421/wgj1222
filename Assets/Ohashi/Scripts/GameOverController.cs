@@ -11,11 +11,11 @@ public class GameOverController : MonoBehaviour
     string _sceneName;
 
     TimeController _timeController;
-    Image _image;
+    Text _image;
     void Start()
     {
         _timeController = GameObject.FindObjectOfType<TimeController>();
-        _image = GetComponent<Image>();
+        _image = GetComponent<Text>();
     }
 
     void Update()
