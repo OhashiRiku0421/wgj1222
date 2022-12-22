@@ -27,5 +27,6 @@ public class ResultController : MonoBehaviour
         Destroy(_gameManager.gameObject);
         Destroy(gameObject);
         SoundManager.Instance.PlaySE("ResultSE");
+        FadeSystem.Instance.FadeOut("Merge_Title");
     }
 }
