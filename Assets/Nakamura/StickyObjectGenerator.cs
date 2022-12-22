@@ -22,8 +22,6 @@ public class StickyObjectGenerator : MonoBehaviour
     [SerializeField] float m_spawnRange = 5f;
     [SerializeField] float m_spawnRate = 1f;
 
-    [SerializeField] InGameStartEffect m_startEffect;
-
 
     new Transform transform;
     Coroutine coroutine;
