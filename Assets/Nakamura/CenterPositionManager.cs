@@ -8,6 +8,7 @@ using System;
 public class CenterPositionManager : MonoBehaviour
 {
     // 中心位置変更時に、てきとうに値を渡すためのマネージャー
+    [SerializeField] PlayerMovementController m_playerMovement;
 
     private void Start()
     {
@@ -16,6 +17,6 @@ public class CenterPositionManager : MonoBehaviour
     }
     private void OnPositionUpdated(Vector2 position, Vector2 position_before)
     {
-        
+        m_playerMovement.Centernize();
     }
 }

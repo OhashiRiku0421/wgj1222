@@ -12,6 +12,6 @@ public class BombController : MonoBehaviour
 
     private void Start()
     {
-        m_movementController.OnSticked.Skip(1).Subscribe(_ => { m_messagePublisher.Publish(); Debug.Log("a"); }).AddTo(this);
+        m_movementController.OnSticked.Skip(1).Subscribe(_ => { m_messagePublisher.Publish(); /*Debug.Log("a");*/ }).AddTo(this);
     }
 }
