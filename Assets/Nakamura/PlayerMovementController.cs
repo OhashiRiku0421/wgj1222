@@ -15,10 +15,13 @@ public class PlayerMovementController : MonoBehaviour
 
     new Transform transform;
 
+    private void Awake()
+    {
+        transform = base.transform;   
+    }
+
     private void Start()
     {
-        transform = base.transform;
-
         _gameManager = GameManager.Instance;
         _gameManager.ResultGameObject(this.gameObject);
     }
