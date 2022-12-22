@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    private bool _isResult = false;
+    private bool _isResult;
 
     public bool IsResult { get => _isResult; set => _isResult = value; }
 
@@ -30,5 +31,4 @@ public class GameManager : MonoBehaviour
     {
         player.transform.parent = transform;
     }
-
 }
