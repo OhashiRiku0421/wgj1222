@@ -5,17 +5,19 @@ using UnityEngine;
 public class ResultController : MonoBehaviour
 {
     GameManager _gameManager;
+    PlayerMovementController _player;
 
     void Start()
     {
         _gameManager = GameManager.Instance;
         _gameManager.IsResult = true;
         SoundManager.Instance.PlayBGM("ResultBGM");
+        _player = FindObjectOfType<PlayerMovementController>();
     }
 
     void Update()
     {
-        if(Camera.main.orthographicSize <=_gameManager.transform.childCount)
+        if(Camera.main.orthographicSize <= _player.transform.childCount)
         {
             Camera.main.orthographicSize += 0.01f;
         }
