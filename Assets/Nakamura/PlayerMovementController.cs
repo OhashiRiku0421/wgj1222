@@ -11,15 +11,23 @@ public class PlayerMovementController : MonoBehaviour
 
     [SerializeField] private float position;
 
+    GameManager _gameManager;
+
     new Transform transform;
 
     private void Start()
     {
         transform = base.transform;
+
+        _gameManager = GameManager.Instance;
+        _gameManager.ResultGameObject(this.gameObject);
     }
 
     private void Update()
     {
+        if (_gameManager.IsResult)
+            return;
+
         float input = Input.GetAxis("Horizontal");
         float mr_half = m_moveableRange * .5f;
 
