@@ -21,9 +21,11 @@ public struct BomData
 /// </summary>
 public class BomMessagePublisher : MonoBehaviour
 {
-    private IEnumerator Start()
+    [Header("”š”­‚µ‚½‚ÉŒ¸‚éc‚èŠÔ")]
+    [SerializeField] int _penalty;
+
+    public void Publish()
     {
-        yield return new WaitForSeconds(2.0f);
-        MessageBroker.Default.Publish(new BomData(100));
+        MessageBroker.Default.Publish(new BomData(_penalty));
     }
 }
