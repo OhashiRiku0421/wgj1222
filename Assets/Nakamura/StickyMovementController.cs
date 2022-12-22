@@ -9,6 +9,7 @@ public class StickyMovementController : MonoBehaviour, IStickable
 {
     [SerializeField] string m_stickTargetTag = "Player";
     [SerializeField] Rigidbody2D m_rigidbody2D;
+    [SerializeField] string m_seKey = "êHçﬁïtíÖSE";
 
     private const float DestroyHeight = -10f;
 
@@ -47,6 +48,8 @@ public class StickyMovementController : MonoBehaviour, IStickable
         this.transform.parent = collision.transform;
         CenterPositionTrackerSingleton.Instance.CheckPosition(pos);
         _onSticked.Value = pos;
+
+        SoundManager.Instance.PlaySE(m_seKey);
     }
 
     private void Reset()

@@ -42,5 +42,6 @@ public class InGameManager : MonoBehaviour
     {
         yield return m_effect.EffectCoroutine();
         _onStartEffectCompleted.OnNext(Unit.Default);
+        SoundManager.Instance.PlayBGM("ƒCƒ“ƒQ[ƒ€BGM");
     }
 }
