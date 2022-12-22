@@ -21,9 +21,18 @@ public class TimeController : MonoBehaviour
     public IObservable<Unit> OnTimerComplete => _onTimerComplete;
 
 
+    bool _isPlaying;
+
+
     private void Awake()
     {
+        _isPlaying = false;
+        InGameManager.Instance.OnStartEffectCompleted.Subscribe(_ => OnGameStart()).AddTo(this);
+    }
+    private void OnGameStart()
+    {
         StartTimer();
+        _isPlaying = true;
     }
 
     private void StartTimer()
@@ -33,6 +42,9 @@ public class TimeController : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (_isPlaying == false)
+            return;
+
         timer -= Time.deltaTime;
         timer = Mathf.Max(timer, 0f);
         _onTimerUpdated.Value = timer;
