@@ -10,6 +10,7 @@ public class ResultController : MonoBehaviour
     {
         _gameManager = GameManager.Instance;
         _gameManager.IsResult = true;
+        SoundManager.Instance.PlayBGM("ResultBGM");
     }
 
     void Update()
@@ -23,5 +24,6 @@ public class ResultController : MonoBehaviour
     {
         Destroy(_gameManager.gameObject);
         Destroy(gameObject);
+        SoundManager.Instance.PlaySE("ResultSE");
     }
 }
