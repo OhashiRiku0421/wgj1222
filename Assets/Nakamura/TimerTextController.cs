@@ -17,6 +17,6 @@ public class TimerTextController : MonoBehaviour
 
     private void TimerUpdate(float timeRemaining)
     {
-        m_text.text = timeRemaining.ToString("000.");
+        m_text.text = timeRemaining.ToString("00.");
     }
 }
